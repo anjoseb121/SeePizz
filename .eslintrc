@@ -1,0 +1,29 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "classes": true
+  },
+  "rules": {
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "indent": [
+      "error",
+      2
+    ],
+    "import/extensions": "ignorePackages",
+    "import/no-unresolved": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/prefer-stateless-function": "off"
+  }
+}
