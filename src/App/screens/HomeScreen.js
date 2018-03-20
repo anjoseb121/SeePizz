@@ -11,9 +11,9 @@ export default class HomeScreen extends Component {
 
   static navigationOptions = {
     header: <Header
-             title='seepizz'
-             subtitle='"The Shazam for Pizza"'
-            />,
+      title='seepizz'
+      subtitle='"The Shazam for Pizza"'
+    />,
   }
 
   constructor() {
@@ -29,15 +29,15 @@ export default class HomeScreen extends Component {
 
     this.options = {
       title: 'Sélectionner une image',
-    takePhotoButtonTitle: 'Prendre une photo',
-    chooseFromLibraryButtonTitle: 'Choisir depuis la galerie',
-    cancelButtonTitle: 'Annuler',
-    cameraType: 'back',
-    mediaType: 'photo',
-    storageOptions: {
-      skipBackup: true,
-      path: 'Seepizz'
-    }
+      takePhotoButtonTitle: 'Prendre une photo',
+      chooseFromLibraryButtonTitle: 'Choisir depuis la galerie',
+      cancelButtonTitle: 'Annuler',
+      cameraType: 'back',
+      mediaType: 'photo',
+      storageOptions: {
+        skipBackup: true,
+        path: 'Seepizz'
+      }
     }
   }
 
@@ -47,7 +47,7 @@ export default class HomeScreen extends Component {
     });
     // It will display picker passing my options
     ImagePicker.showImagePicker(this.options, response => {
-      if  (response.didCancel) {
+      if (response.didCancel) {
         this.setState({
           loading: false,
         });
@@ -70,6 +70,22 @@ export default class HomeScreen extends Component {
 
 
   render() {
-    return null;
+    return (
+      <View style={styles.container}>
+        <StatusBar hidden/>
+        <BackgroundImage sourche={require('../../assets/bkg.jpg')}>
+        {
+          !this.state.loading ?
+            <XPButton
+              title="Analyser une image"
+              onPress={this._onClick}
+            /> :
+            <ActivityIndicator size="large"
+              color="#e74c3c"
+            />
+        }
+        </BackgroundImage>
+      </View>  
+    );
   }
 }
